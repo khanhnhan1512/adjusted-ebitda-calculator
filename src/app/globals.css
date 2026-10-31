@@ -1,0 +1,79 @@
+@import "tailwindcss";
+
+@theme {
+  /* Aspen Valuations brand palette, shared with the valuation calculator and
+     exit readiness assessment */
+  --color-teal: #05b4c9;
+  --color-teal-dark: #0497a8;
+  --color-teal-soft: #e6f8fb;
+  --color-forest: #1a322f;
+  --color-forest-light: #24443f;
+  --color-charcoal: #333333;
+  --color-bone: #f6f7f5;
+  --color-line: #e3e6e2;
+
+  /* DIN Next LT Pro is the licensed brand face; Barlow is the closest free
+     web fallback, with Arial as the final fallback named in the brand spec. */
+  --font-sans: "DIN Next LT Pro", var(--font-barlow), Arial, Helvetica,
+    sans-serif;
+}
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #ffffff;
+  color: var(--color-charcoal);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@utility eyebrow {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@utility animate-fade-up {
+  animation: fade-up 0.35s ease-out both;
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+
+  body {
+    background: #ffffff;
+  }
+}
